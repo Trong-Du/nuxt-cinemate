@@ -1,7 +1,7 @@
 <template>
     <div>
         <section>
-            <h1 class="text-5xl font-extrabold dark:text-white">Upcoming Movies</h1>
+            <h1 class="text-5xl font-extrabold dark:text-white">Now Playing Movies</h1>
             <br><br>
             <ul class="grid grid-cols-2 md:grid-cols-5 gap-4">
                 <li
@@ -25,10 +25,9 @@
 
 <script setup>
 const movies = useState(() => [])
-
-await useFetch('/api/movies/upcoming', {
+await useFetch('/api/movies/now-playing', {
     transform: data => {
-        movies.value = data.upcomingMovies.results
+        movies.value = data.nowPlayingMovies.results
     }
 })
 </script>

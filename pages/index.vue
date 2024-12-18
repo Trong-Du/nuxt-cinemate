@@ -1,7 +1,7 @@
 <template>
     <div>
         <section>
-            <h1 class="text-5xl font-extrabold dark:text-white">Popular Movies</h1>
+            <h1 class="text-5xl font-extrabold dark:text-white">Featured Movies</h1>
             <br><br>
             <ul class="grid grid-cols-2 md:grid-cols-5 gap-4">
                 <li
@@ -21,7 +21,7 @@
             </ul>
         </section>
         <section>
-            <h1 class="text-5xl font-extrabold dark:text-white">Popular TV Series</h1>
+            <h1 class="text-5xl font-extrabold dark:text-white">Featured TV Series</h1>
             <br><br>
             <ul class="grid grid-cols-2 md:grid-cols-5 gap-4">
                 <li
@@ -45,11 +45,10 @@
 <script setup>
 const movies = useState(() => [])
 const series = useState(() => [])
-
-await useFetch('/api/movies/popular', {
+await useFetch('/api/movies/discover', {
     transform: data => {
-        movies.value = data.popularMovies.results
-        series.value = data.popularSeries.results
+        movies.value = data.movies.results
+        series.value = data.series.results
     }
 })
 </script>
